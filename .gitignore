@@ -1,0 +1,38 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+/backend/dist/
+/frontend/.next/
+/frontend/out/
+/frontend/build/
+
+# Environment variables
+**/.env
+**/.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
+**/next-env.d.ts
+
+# Coverage
+**/coverage/
+
+# Prisma
+/backend/prisma/*.db
+/backend/prisma/*.db-journal

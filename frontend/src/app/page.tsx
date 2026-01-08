@@ -4,7 +4,6 @@ import { ArrowRight, UserCircle, Share2, Sparkles } from "lucide-react";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-indigo-100 selection:text-indigo-900">
-      {/* Navbar */}
       <header className="px-6 py-4 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
         <div className="font-extrabold text-2xl tracking-tight bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
           Test<span className="font-light text-slate-400">vCard</span>
@@ -15,9 +14,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero */}
       <main className="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-10 relative overflow-hidden">
-        {/* Decor */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -z-10 animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl -z-10 animate-pulse delay-1000" />
 
@@ -44,7 +41,6 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 text-left max-w-5xl w-full z-10">
           <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-100/50 transition duration-300 hover:-translate-y-1">
             <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600">

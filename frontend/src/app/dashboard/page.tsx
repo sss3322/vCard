@@ -112,7 +112,6 @@ export default function Dashboard() {
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-20">
-            {/* Navbar */}
             <header className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
                 <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-3">
@@ -139,8 +138,6 @@ export default function Dashboard() {
 
             <main className="max-w-5xl mx-auto px-6 py-8">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-
-                    {/* Section 1: Basic Info */}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div className="px-8 py-6 border-b border-slate-100 flex items-center gap-3">
                             <div className="p-2 bg-blue-50 text-blue-600 rounded-lg"><User size={20} /></div>
@@ -162,7 +159,6 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    {/* Section 2: Intro */}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div className="px-8 py-6 border-b border-slate-100 flex items-center gap-3">
                             <div className="p-2 bg-purple-50 text-purple-600 rounded-lg"><Briefcase size={20} /></div>
@@ -180,7 +176,6 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    {/* Section 3: Contact Details */}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div className="px-8 py-6 border-b border-slate-100 flex justify-between items-center">
                             <div className="flex items-center gap-3">
@@ -209,7 +204,6 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    {/* Section 4: Social Links */}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div className="px-8 py-6 border-b border-slate-100 flex justify-between items-center">
                             <div className="flex items-center gap-3">
@@ -234,7 +228,6 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    {/* Section 5: Web Links */}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div className="px-8 py-6 border-b border-slate-100 flex justify-between items-center">
                             <div className="flex items-center gap-3">
@@ -259,7 +252,6 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    {/* Section 6: Video */}
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div className="px-8 py-6 border-b border-slate-100 flex items-center gap-3">
                             <div className="p-2 bg-red-50 text-red-600 rounded-lg"><Video size={20} /></div>

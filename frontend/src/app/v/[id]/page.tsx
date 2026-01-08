@@ -2,23 +2,18 @@ import { notFound } from 'next/navigation';
 import { User, Phone, Mail, Link as LinkIcon, Download, Instagram, Linkedin, Twitter, Github, Globe, ExternalLink, Sparkles, PlayCircle } from 'lucide-react';
 import Link from 'next/link';
 
-// Helper to get YouTube Thumbnail
 function getVideoThumbnail(url: string) {
     if (!url) return null;
 
-    // YouTube
     const ytRegExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     const ytMatch = url.match(ytRegExp);
     if (ytMatch && ytMatch[2].length === 11) {
         return `https://img.youtube.com/vi/${ytMatch[2]}/maxresdefault.jpg`;
     }
 
-    // Vimeo
     const vimeoRegExp = /vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^\/]*)\/videos\/|album\/(?:\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)/;
     const vimeoMatch = url.match(vimeoRegExp);
     if (vimeoMatch) {
-        // Vimeo thumbnails require an API call usually, but we can try a simple placeholder or just return null for now
-        // For now, let's just support YouTube specifically as it's most common
     }
 
     return null;
@@ -54,17 +49,14 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-6 relative overflow-hidden font-sans">
 
-            {/* Animated orbs */}
             <div className="fixed top-0 left-0 w-96 h-96 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
             <div className="fixed top-0 right-0 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
             <div className="fixed bottom-0 left-1/2 w-96 h-96 bg-pink-400/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
 
             <div className="w-full max-w-lg relative z-10">
 
-                {/* Main Card Container */}
                 <div className="bg-white/90 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-indigo-200/50 overflow-hidden border border-white/50">
 
-                    {/* Header with Avatar */}
                     <div className="relative">
                         <div className="h-48 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 relative overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -73,7 +65,6 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                             }}></div>
                         </div>
 
-                        {/* Avatar */}
                         <div className="absolute -bottom-16 left-1/2 -translate-x-1/2">
                             <div className="relative">
                                 <div className="w-32 h-32 rounded-full bg-gradient-to-br from-white to-gray-50 p-1 shadow-2xl">
@@ -88,17 +79,14 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                         </div>
                     </div>
 
-                    {/* Content */}
                     <div className="pt-20 pb-8 px-8">
 
-                        {/* Name & Title */}
                         <div className="text-center mb-8">
                             <h1 className="text-3xl font-bold text-gray-900 mb-2">{card.name}</h1>
                             <p className="text-lg text-indigo-600 font-semibold mb-1">{card.jobTitle}</p>
                             <p className="text-sm text-gray-500 font-medium">{card.companyName}</p>
                         </div>
 
-                        {/* Description */}
                         {(card.heading || card.description) && (
                             <div className="mb-8 text-center">
                                 {card.heading && (
@@ -110,7 +98,6 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {/* Quick Actions */}
                         <div className="space-y-3 mb-8">
                             {card.contactDetails?.map((contact: any, idx: number) => {
                                 if (contact.type === 'MOBILE') {
@@ -151,7 +138,6 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                             })}
                         </div>
 
-                        {/* Web Links */}
                         {card.webLinks && card.webLinks.length > 0 && (
                             <div className="space-y-3 mb-8">
                                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Links</h3>
@@ -172,7 +158,6 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {/* Social Links */}
                         {card.socialLinks && card.socialLinks.length > 0 && (
                             <div className="mb-8">
                                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Connect with me</h3>
@@ -194,7 +179,6 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {/* Video */}
                         {card.videoUrl && (
                             <div className="mb-6">
                                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Featured Video</h3>
@@ -219,7 +203,6 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                                         </div>
                                     </div>
 
-                                    {/* YouTube Tag */}
                                     {card.videoUrl.includes('youtube.com') || card.videoUrl.includes('youtu.be') ? (
                                         <div className="absolute top-4 right-4 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-md flex items-center gap-1 shadow-lg">
                                             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
@@ -230,7 +213,6 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {/* Save Contact Button */}
                         <button className="w-full py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/60 transition-all duration-300 flex items-center justify-center gap-3 transform hover:-translate-y-1">
                             <Download size={20} />
                             <span>Save Contact</span>
@@ -238,7 +220,6 @@ export default async function PublicVCard({ params }: { params: Promise<{ id: st
                     </div>
                 </div>
 
-                {/* Footer */}
                 <div className="text-center mt-8">
                     <p className="text-xs text-gray-400 font-semibold uppercase tracking-widest">
                         Powered by <span className="text-indigo-600">vCard Editor</span>
